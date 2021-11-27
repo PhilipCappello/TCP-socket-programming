@@ -17,7 +17,8 @@ serverPort = 80
 # create client socket (param1: using IPv4; param2: socket type TCP)
 clientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 clientSocket.connect((serverName,serverPort))
-request = "GET / HTTP/1.1\r\nHost:%s\r\n\r\n" % webAddress
+request = "GET / HTTP/1.1\r\n\r\nHost:%s\r\n\r\n" % webAddress
 clientSocket.send(request.encode())
+print('Your webpage content is:')
 print(clientSocket.recv(4096))
 clientSocket.close() 
